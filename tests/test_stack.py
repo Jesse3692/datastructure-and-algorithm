@@ -19,7 +19,7 @@ print(work_dir)
 # print(os.path.abspath(os.path.dirname(__file__)))
 
 import pytest
-from Stack import Stack, StackEmptyException, StackOverflowException
+from Stack import Stack
 
 
 class TestClass(object):
@@ -30,15 +30,26 @@ class TestClass(object):
         stack.push('2')
         
     def test_raise_stackoverflow(self):
-        with pytest.raises(StackOverflowException):
+        with pytest.raises(Exception) as e:
             self.raise_stackoverflow()
+        assert 'Stack Overflow Exception' == str(e.value)
     
     def raise_stackempty(self):
         stack = Stack(limit=1)
         stack.pop()
         
     def test_raise_stackempty(self):
-        with pytest.raises(StackEmptyException):
+        with pytest.raises(Exception) as e:
             self.raise_stackempty()
+        assert 'Stack Empty Exception' == str(e.value)
+        
+    def raise_stackemptypeek(self):
+        stack = Stack()
+        stack.peek()
+        
+    def test_raise_stackemptypeek(self):
+        with pytest.raises(IndexError) as e:
+            self.raise_stackemptypeek()
+        assert 'Stack index out of range' == str(e.value)
 
 
