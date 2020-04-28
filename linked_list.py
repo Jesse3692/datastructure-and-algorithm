@@ -137,3 +137,9 @@ class Linked_List:
             temp = temp.next
         # 返回链表的长度
         return length
+
+if __name__ == "__main__":
+    linked_list = Linked_List()
+    a = [1,2,3,4,5,6]
+    linked_list.initlist(a)
+    print(linked_list.print_list())
