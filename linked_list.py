@@ -27,6 +27,8 @@ class Linked_List:
         """
         向链表添加新的结点
         """
+        # 创建Node数据结构
+        node = Node(new_element)
         # 将头部结点指向临时变量current
         current = self.head
         # 当头部结点存在时
@@ -37,7 +39,7 @@ class Linked_List:
             current.next = new_element
         # 当头部结点不存在时
         else:
-            self.head = new_element
+            self.head = node
 
     def insert(self, position, new_element):
         """
@@ -140,6 +142,11 @@ class Linked_List:
 
 if __name__ == "__main__":
     linked_list = Linked_List()
-    a = [1,2,3,4,5,6]
-    linked_list.initlist(a)
-    print(linked_list.print_list())
+    # a = [1,2,3,4,5,6]
+    # linked_list.initlist(a)
+    # print(linked_list.print_list())
+    linked_list.append(1)
+    linked_list.append(2)
+    #TODO 合并这三个单链表数据结构
+
+    
